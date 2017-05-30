@@ -41,7 +41,7 @@ def index():
                     two = ek['PublicDnsName']
                     three = ek['State']['Name']
 
-                    results.append({'Instance Information': [one,two,three]})
+                    results.append({'Instance Information': [("Instance id: " + str(one)), ("PublicDnsName: " +str(two)),("State: "+str(three))]})
                     cur.execute("INSERT INTO INST (INSTUSER, AWSINSTANCEID, PUBLICDNSNAME, INSTANCESTATE) VALUES (?,?,?,?)", (str(lastid), str(one), str(two), str(three),))
                     con.commit()
                     print("instance added")
